@@ -1,29 +1,34 @@
 # Docker Build, Scan, and Publish Pipeline
 
-A small but realistic project for explaining how to ship container images safely.
+This repo shows a practical container release flow:
 
-## Stack
-- Docker
-- GitHub Actions or Jenkins
-- Trivy
-- Container registry
-- Kubernetes deployment target
+- Build a Docker image
+- Run a vulnerability scan
+- Publish only the approved tag
+- Keep the deployment target separate from the app source
 
-## What this repo covers
-- Dockerfile best practices
-- Image build and version tagging
-- Vulnerability scan before publish
-- Registry push after checks pass
-- Deployment handoff using the approved image tag
+## What is inside
 
-## Interview talking points
-- Images are treated as release artifacts
-- Vulnerability scans are blocking, not optional
-- Versioned tags make rollback simple
+- A tiny Python service with health and info endpoints
+- A production-style Dockerfile
+- A GitHub Actions workflow
+- A sample scan script
 
-## Quick flow
-1. Commit code.
-2. Build the image.
-3. Scan the image.
-4. Push only if the scan passes.
-5. Deploy the exact tag that passed validation.
+## Run locally
+
+```bash
+python app/server.py
+```
+
+## Build the image
+
+```bash
+docker build -t devopsghazali/docker-build-scan-publish:local .
+```
+
+## Main files
+
+- `app/server.py`
+- `Dockerfile`
+- `.github/workflows/docker-publish.yml`
+- `scripts/scan.sh`
