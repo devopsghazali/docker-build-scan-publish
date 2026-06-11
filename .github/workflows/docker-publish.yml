@@ -1,4 +1,4 @@
-```yaml
+
 name: Docker Build, Scan and Publish
 
 on:
@@ -71,5 +71,4 @@ jobs:
         run: |
           docker push "${IMAGE_NAME}:${{ github.ref_name }}"
           docker push "${IMAGE_NAME}:${{ github.sha }}"
-```
 
