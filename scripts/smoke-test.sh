@@ -1,4 +1,4 @@
-```sh
+
 #!/usr/bin/env sh
 
 set -eu
@@ -52,5 +52,4 @@ echo "Container logs:"
 docker logs "${CONTAINER_NAME}"
 
 exit 1
-```
 
